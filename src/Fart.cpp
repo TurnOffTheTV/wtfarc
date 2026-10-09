@@ -1,10 +1,9 @@
 #include <cstring>
-#include <iostream>
 #include <openssl/sha.h>
 #include <endianness.hpp>
-#include <wtfarc_error.hpp>
 #include <Fart.hpp>
 #include <hex.hpp>
+#include <wtfarc_error.hpp>
 
 using namespace WTFarc;
 
@@ -156,7 +155,6 @@ char* Fart::getEntryData(std::string hash){
 	//Get data from FART source
 	if(_entries[hash].loadFromBuffer){
 		memcpy(buffer,_entries[hash].buffer+_entries[hash].offset,_entries[hash].length);
-		std::cout << _entries[hash].length << std::endl;
 	}else{
 		_entries[hash].stream->clear();
 		_entries[hash].stream->seekg(_entries[hash].offset,std::ios::beg);
@@ -186,6 +184,7 @@ std::string Fart::addEntry(char* buffer,unsigned int length){
 	_hashIndices.push_back(hash);
 	_entries.insert({hash,newEntry});
 
+	_loaded=true;
 	return hash;
 
 }
@@ -213,6 +212,7 @@ std::string Fart::addEntry(std::fstream* stream,unsigned int length){
 	_hashIndices.push_back(hash);
 	_entries.insert({hash,newEntry});
 
+	_loaded=true;
 	delete buffer;
 	return hash;
 	

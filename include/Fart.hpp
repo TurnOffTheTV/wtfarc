@@ -9,19 +9,24 @@
 namespace WTFarc {
 
 	enum FartType: char {
+
 		FAR2='2',
 		FAR3='3',
 		FAR4='4',
 		FAR5='5',
 		FARC='C'
+
 	};
 
 	struct FartEntry {
+
 			unsigned int offset;
 			unsigned int length;
+
 			bool loadFromBuffer;
 			char* buffer;
 			std::fstream* stream;
+
 	};
 
 	struct FartSaveKey {
@@ -45,6 +50,8 @@ namespace WTFarc {
 			Fart(char* buffer,unsigned int length);
 			Fart(std::fstream* stream);
 
+			bool isLoaded(){return _loaded;}
+
 			void load(char* buffer,unsigned int length);
 			void load(std::fstream* stream);
 
@@ -63,6 +70,7 @@ namespace WTFarc {
 			void removeEntry(std::string hash);
 
 		private:
+
 			bool _loaded;
 			FartType _fartType;
 
@@ -90,8 +98,6 @@ namespace WTFarc {
 			char* _createSaveKey();
 
 	};
-
-	
 
 };
 
