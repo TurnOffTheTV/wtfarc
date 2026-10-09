@@ -5,7 +5,8 @@
 
 namespace WTFarc {
 
-	int inline littleToSystem(int num){
+	template <std::integral T>
+	constexpr T inline littleToSystem(T num){
 		if constexpr(std::endian::native==std::endian::big){
 			return std::byteswap(num);
 		}else{
@@ -13,7 +14,8 @@ namespace WTFarc {
 		}
 	}
 
-	int inline bigToSystem(int num){
+	template <std::integral T>
+	constexpr T inline bigToSystem(T num){
 		if constexpr(std::endian::native==std::endian::little){
 			return std::byteswap(num);
 		}else{
