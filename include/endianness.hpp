@@ -2,6 +2,7 @@
 #define ENDIANNESS_HPP
 
 #include <bit>
+#include <concepts>
 
 namespace WTFarc {
 
