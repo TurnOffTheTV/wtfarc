@@ -196,7 +196,7 @@ char* Map::writeToBuffer(unsigned int& length){
 			memcpy(buffer+offset,&pathLength,4);
 			offset+=4;
 		}
-		memcpy(buffer+offset,_entries[i].path.c_str(),_entries[i].path.string().length());
+		memcpy(buffer+offset,_entries[i].path.string().c_str(),_entries[i].path.string().length());
 		offset+=_entries[i].path.string().length();
 
 		//Write timestamp
@@ -255,7 +255,7 @@ void Map::writeToFile(std::fstream* stream){
 		}else{
 			stream->write((char*)&pathLength,4);
 		}
-		stream->write(_entries[i].path.c_str(),_entries[i].path.string().length());
+		stream->write(_entries[i].path.string().c_str(),_entries[i].path.string().length());
 
 		//Write timestamp
 		unsigned long timestamp = bigToSystem(_entries[i].timestamp);
