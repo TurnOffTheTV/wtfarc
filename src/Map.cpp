@@ -120,9 +120,10 @@ void Map::load(std::fstream* stream){
 		}
 		pathLength=bigToSystem(pathLength);
 
-		char pathBuffer[pathLength];
+		char* pathBuffer = new char[pathLength];
 		stream->read(pathBuffer,pathLength);
 		newEntry.path=std::string(pathBuffer,pathLength);
+		delete pathBuffer;
 
 		//Read timestamp
 		newEntry.timestamp=0;
