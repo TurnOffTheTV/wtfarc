@@ -58,6 +58,8 @@ namespace WTFarc {
 			char* writeToBuffer(unsigned int& length);
 			void writeToFile(std::fstream* stream);
 
+			FartType getType(){return _fartType;}
+
 			bool isLittleEndian(){return _littleEndian;}
 			void setLittleEndian(bool littleEndian){_littleEndian=littleEndian;}
 

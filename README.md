@@ -1,3 +1,3 @@
 # WTFarc
 
-C++ library for reading/writing FART and MAP files from the LittleBigPlanet games.
+C++ library for reading/writing and manipulating FART and MAP files from the LittleBigPlanet games.
