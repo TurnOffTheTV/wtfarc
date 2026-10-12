@@ -3,8 +3,8 @@
 
 #include <filesystem>
 #include <fstream>
-#include <map>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 namespace WTFarc {
@@ -49,8 +49,8 @@ namespace WTFarc {
 			unsigned int _revision;
 
 			std::vector<MapEntry> _entries;
-			std::map<unsigned int,unsigned int> _guidIndices;
-			std::map<std::string,unsigned int> _hashIndices;
+			std::unordered_map<unsigned int,unsigned int> _guidIndices;
+			std::unordered_map<std::string,unsigned int> _hashIndices;
 
 	};
 

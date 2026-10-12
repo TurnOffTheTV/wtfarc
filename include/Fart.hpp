@@ -1,9 +1,9 @@
 #ifndef FART_HPP
 #define FART_HPP
 
-#include <map>
 #include <fstream>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 namespace WTFarc {
@@ -90,7 +90,7 @@ namespace WTFarc {
 
 			unsigned int _numEntries;
 			std::vector<std::string> _hashIndices;
-			std::map<std::string,FartEntry> _entries;
+			std::unordered_map<std::string,FartEntry> _entries;
 
 			unsigned int _getHeaderSize();
 			void _parseHeader(char header[12]);
