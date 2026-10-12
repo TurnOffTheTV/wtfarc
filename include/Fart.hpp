@@ -65,8 +65,11 @@ namespace WTFarc {
 
 			unsigned int getNumEntries(){return _numEntries;}
 			std::string getHash(unsigned int index){return _hashIndices[index];}
+			bool hasHash(std::string hash){return _entries.contains(hash);}
 			unsigned int getEntryLength(std::string hash);
+			unsigned int getEntryLength(unsigned int index){return getEntryLength(getHash(index));}
 			char* getEntryData(std::string hash);
+			char* getEntryData(unsigned int index){return getEntryData(getHash(index));}
 			std::string addEntry(char* buffer,unsigned int length);
 			std::string addEntry(std::fstream* stream,unsigned int length);
 			void removeEntry(std::string hash);
